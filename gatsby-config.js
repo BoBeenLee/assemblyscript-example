@@ -71,7 +71,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-root-import",
       options: {
-        src: path.join(__dirname, "src")
+        src: path.join(__dirname, "src"),
+        assembly: path.join(__dirname, "assembly")
       }
     }
   ]

@@ -23,7 +23,10 @@
     "prepush": "npm run lint:css && npm run eslint",
     "changelog": "auto-changelog -p && git add CHANGELOG.md",
     "version": "npm run changelog",
-    "release": "release-it --ci"
+    "release": "release-it --ci",
+    "asbuild:untouched": "asc assembly/index.ts -b build/untouched.wasm -t build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc assembly/index.ts -b build/optimized.wasm -t build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
@@ -59,7 +62,8 @@
     "recompose": "^0.30.0",
     "styled-components": "^4.2.0",
     "styled-theming": "^2.2.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "@assemblyscript/loader": "^0.9.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -87,6 +91,7 @@
     "@types/uuid": "^3.4.6",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
+    "assemblyscript": "^0.9.2",
     "auto-changelog": "^1.16.2",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",

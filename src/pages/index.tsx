@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Layout from "src/components/common/Layout";
 import SEO from "src/components/common/SEO";
 import { IStore } from "src/stores/Store";
+import { add } from "assembly/index";
 
 interface IInject {
   store: IStore;
@@ -23,7 +24,7 @@ interface IProps extends PageRendererProps, IInject {
 @observer
 class IndexPage extends React.Component<IProps> {
   public render() {
-    return <Layout>Test</Layout>;
+    return <Layout>Test{add(5, 10)}</Layout>;
   }
 }
 
